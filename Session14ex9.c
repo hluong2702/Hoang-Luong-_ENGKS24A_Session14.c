@@ -1,21 +1,23 @@
-#include <stdio.h>
-#include <string.h>
-
-int main() {
-    char str[] = "hello world, o";
-    char charToRemove;
-    printf("Nhập ký tự cần xóa: ");
-    scanf("%c", &charToRemove);
-    
-    int j = 0;
-    for (int i = 0; i < strlen(str); i++) {
-        if (str[i] != charToRemove) {
-            str[j++] = str[i];
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char string[100] = "Hello World";
+    int size = strlen(string);
+    char item;
+    printf("Chuoi hien tai : %s \n",string);
+    printf("Nhap ki tu muon xoa : ");
+    scanf("%c",&item);
+    for (int i = 0; i < size; i++)
+    {
+        if (string[i] == item)
+        {
+            for (int j = i; j < size; j++)
+            {
+                string[j] = string[j+1];
+            }
+            size--;
+            i--;
         }
     }
-    str[j] = '\0'; 
-    
-    printf("Chuỗi sau khi xóa: %s\n", str);
-    
-    return 0;
+    printf("Chuoi hien tai : %s \n",string);
 }
